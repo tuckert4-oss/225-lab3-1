@@ -4,10 +4,10 @@ pipeline {
 
     environment {
         DOCKER_CREDENTIALS_ID = 'roseaw-dockerhub'                                 // <------DON'T change this
-        DOCKER_IMAGE = 'cithit/roseaw'                                                 // <------change this
+        DOCKER_IMAGE = 'cithit/tuckert4'                                                 // <------change this
         IMAGE_TAG = "build-${BUILD_NUMBER}"
-        GITHUB_URL = 'https://github.com/miamioh-cit/225-lab3-1.git'                   // <------change this
-        KUBECONFIG = credentials('roseaw-225')                                             // <------change this
+        GITHUB_URL = 'https://github.com/tuckert4-oss/225-lab3-1.git'                   // <------change this
+        KUBECONFIG = credentials('6be6c62a-2bf3-45cd-b699-7a751fb2c87f')                                             // <------change this
     }
 
     stages {
