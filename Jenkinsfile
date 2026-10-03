@@ -39,12 +39,10 @@ pipeline {
         stage('Deploy to Dev Environment using NodePort') {
             steps {
                 script {
-                    // Set up Kubernetes configuration using the specified KUBECONFIG
-                    def kubeConfig = readFile(KUBECONFIG)
-                    // Update deployment-dev.yaml to use the new image tag
-                    sh "sed -i 's|${DOCKER_IMAGE}:latest|${DOCKER_IMAGE}:${IMAGE_TAG}|' deployment-dev.yaml"
-                    sh "kubectl apply -f deployment-dev.yaml"
-                }
+    // Update deployment-dev.yaml to use the new image tag
+    sh "sed -i 's|${DOCKER_IMAGE}:latest|${DOCKER_IMAGE}:${IMAGE_TAG}|' deployment-dev.yaml"
+    sh "kubectl apply -f deployment-dev.yaml"
+}
             }
         }
  
