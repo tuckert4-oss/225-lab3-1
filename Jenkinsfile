@@ -7,7 +7,7 @@ pipeline {
         DOCKER_IMAGE = 'cithit/tuckert4'                                                 // <------change this
         IMAGE_TAG = "build-${BUILD_NUMBER}"
         GITHUB_URL = 'https://github.com/tuckert4-oss/225-lab3-1.git'                   // <------change this
-        KUBECONFIG = credentials('6be6c62a-2bf3-45cd-b699-7a751fb2c87f')                                             // <------change this
+        KUBECONFIG = credentials('tuckert4')                                             // <------change this
     }
 
     stages {
@@ -41,7 +41,7 @@ pipeline {
                 script {
     // Update deployment-dev.yaml to use the new image tag
     sh "sed -i 's|${DOCKER_IMAGE}:latest|${DOCKER_IMAGE}:${IMAGE_TAG}|' deployment-dev.yaml"
-    sh "kubectl apply -f deployment-dev.yaml"
+    sh "kubectl --kubeconfig $KUBECONFIG apply -f deployment-dev.yaml"
 }
             }
         }
